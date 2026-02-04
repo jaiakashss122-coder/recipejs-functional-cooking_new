@@ -47,6 +47,44 @@
     <!-- Existing Recipe Container -->
     <div id="recipe-container">
         <!-- Recipe cards will be rendered here by JavaScript -->
+        const createRecipeCard = (recipe) => {
+         return `
+        <div class="recipe-card" data-id="${recipe.id}">
+            <h3>${recipe.title}</h3>
+            <div class="recipe-meta">
+                <span>⏱️ ${recipe.time} min</span>
+                <span class="difficulty ${recipe.difficulty}">${recipe.difficulty}</span>
+            </div>
+            <p>${recipe.description}</p>
+            
+            <!-- NEW: Toggle Buttons -->
+            <div class="card-actions">
+                <button class="toggle-btn" data-recipe-id="${recipe.id}" data-toggle="steps">
+                    📋 Show Steps
+                </button>
+                <button class="toggle-btn" data-recipe-id="${recipe.id}" data-toggle="ingredients">
+                    🥗 Show Ingredients
+                </button>
+            </div>
+            
+            <!-- NEW: Ingredients Section (hidden by default) -->
+            <div class="ingredients-container" data-recipe-id="${recipe.id}">
+                <h4>Ingredients:</h4>
+                <ul>
+                    ${/* TODO: Generate list items for each ingredient */}
+                    ${recipe.ingredients.map(ingredient => `<li>${ingredient}</li>`).join('')}
+                </ul>
+            </div>
+            
+            <!-- NEW: Steps Section (hidden by default) -->
+            <div class="steps-container" data-recipe-id="${recipe.id}">
+                <h4>Cooking Steps:</h4>
+                ${/* TODO: Call createStepsHTML function here */}
+                ${createStepsHTML(recipe.steps)}
+            </div>
+        </div>
+    `;
+};
     </div>
 </main>
     </main>
