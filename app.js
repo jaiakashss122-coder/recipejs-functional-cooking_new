@@ -7,63 +7,37 @@ const recipes = [
         difficulty: "easy",
         description: "A creamy Italian pasta dish made with eggs, cheese, pancetta, and black pepper.",
         category: "pasta",
+        // NEW: Add ingredients array
+        ingredients: [
+            "400g spaghetti",
+            "200g pancetta or guanciale",
+            "4 large eggs",
+            "100g Pecorino Romano cheese",
+            "Black pepper",
+            "Salt"
+        ],
+        // NEW: Add steps array (can include nested steps)
+        steps: [
+            "Bring a large pot of salted water to boil",
+            "Cook spaghetti according to package directions",
+            {
+                text: "Prepare the sauce",
+                substeps: [
+                    "Beat eggs in a bowl",
+                    "Grate cheese and add to eggs",
+                    "Add generous black pepper",
+                    "Mix well"
+                ]
+            },
+            "Cook pancetta in a large pan until crispy",
+            "Drain pasta, reserve 1 cup pasta water",
+            "Add hot pasta to pancetta pan (off heat)",
+            "Quickly mix in egg mixture, adding pasta water to create creamy sauce",
+            "Serve immediately with extra cheese"
+        ]
     },
-    {
-        id: 2,
-        title: "Chicken Tikka Masala",
-        time: 45,
-        difficulty: "medium",
-        description: "Tender chicken pieces in a creamy, spiced tomato sauce.",
-        category: "curry",
-    },
-    {
-        id: 3,
-        title: "Homemade Croissants",
-        time: 180,
-        difficulty: "hard",
-        description: "Buttery, flaky French pastries that require patience but deliver amazing results.",
-        category: "baking",
-    },
-    {
-        id: 4,
-        title: "Greek Salad",
-        time: 15,
-        difficulty: "easy",
-        description: "Fresh vegetables, feta cheese, and olives tossed in olive oil and herbs.",
-        category: "salad",
-    },
-    {
-        id: 5,
-        title: "Beef Wellington",
-        time: 120,
-        difficulty: "hard",
-        description: "Tender beef fillet coated with mushroom duxelles and wrapped in puff pastry.",
-        category: "meat",
-    },
-    {
-        id: 6,
-        title: "Vegetable Stir Fry",
-        time: 20,
-        difficulty: "easy",
-        description: "Colorful mixed vegetables cooked quickly in a savory sauce.",
-        category: "vegetarian",
-    },
-    {
-        id: 7,
-        title: "Pad Thai",
-        time: 30,
-        difficulty: "medium",
-        description: "Thai stir-fried rice noodles with shrimp, peanuts, and tangy tamarind sauce.",
-        category: "noodles",
-    },
-    {
-        id: 8,
-        title: "Margherita Pizza",
-        time: 60,
-        difficulty: "medium",
-        description: "Classic Italian pizza with fresh mozzarella, tomatoes, and basil.",
-        category: "pizza",
-    },
+    // TODO: Update the remaining 7 recipes with ingredients and steps
+    // At least 2 recipes should have nested substeps
 ];
 
 // DOM Selection
