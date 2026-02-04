@@ -94,3 +94,18 @@ const renderRecipes = (recipesToRender) => {
 
 // Initialize app
 renderRecipes(recipes);
+// ============================================
+// RECIPE DATA (from Part 1 - no changes)
+// ============================================
+const recipes = [
+    // Your 8 recipes from Part 1
+    // ... no changes needed here
+];
+
+
+// ============================================
+// STATE MANAGEMENT
+// ============================================
+// Track current filter and sort settings
+let currentFilter = 'all';
+let currentSort = 'none';
