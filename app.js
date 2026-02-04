@@ -43,6 +43,37 @@ const recipes = [
 // DOM Selection
 const recipeContainer = document.querySelector('#recipe-container');
 
+// Recursive function to render steps (handles nesting)
+const renderSteps = (steps, level = 0) => {
+    // Determine the CSS class based on nesting level
+    const listClass = level === 0 ? 'steps-list' : 'substeps-list';
+    
+    let html = `<ol class="${listClass}">`;
+    
+    steps.forEach(step => {
+        // TODO: Check if step is a string or object
+        if (typeof step === 'string') {
+            // Simple step - just add as list item
+            html += `<li>${step}</li>`;
+        } else {
+            // Nested step - has text and substeps
+            html += `<li>`;
+            html += step.text;  // Main step text
+            
+            // TODO: Recursively call renderSteps for substeps
+            if (step.substeps && step.substeps.length > 0) {
+                // RECURSIVE CALL - this is the key!
+                html += renderSteps(step.substeps, level + 1);
+            }
+            
+            html += `</li>`;
+        }
+    });
+    
+    html += `</ol>`;
+    return html;
+};
+
 // Create HTML for one recipe card
 const createRecipeCard = (recipe) => {
     return `
