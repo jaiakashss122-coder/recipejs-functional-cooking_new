@@ -42,7 +42,15 @@ const recipes = [
 
 // DOM Selection
 const recipeContainer = document.querySelector('#recipe-container');
-
+const createStepsHTML = (steps) => {
+    // TODO: Check if steps exist
+    if (!steps || steps.length === 0) {
+        return '<p>No steps available</p>';
+    }
+    
+    // Call the recursive function to generate the nested list
+    return renderSteps(steps);
+};
 // Recursive function to render steps (handles nesting)
 const renderSteps = (steps, level = 0) => {
     // Determine the CSS class based on nesting level
